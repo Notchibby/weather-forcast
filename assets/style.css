@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+p {
+    color: #000000;
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+h3 {
+    font-weight: bolder;
+}
+
+header {
+
+    font-family: 'Trebuchet Ms', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #447ddf;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dashboard {
+    margin: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+aside {
+    width: 30%;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.recent-search {
+    box-sizing: border-box;
+    border-top: solid #020202;
+    margin-top: 20px;
+
+}
+
+.result {
+    width: auto;
+
+}
+
+
+
+.current {
+    width: 410%;
+    height: 280px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    border: 1px solid #020202;
+    box-sizing: border-box;
+}
+
+.forcast {
+    margin-left: 20px;
+    margin-top: 10px;
+}
