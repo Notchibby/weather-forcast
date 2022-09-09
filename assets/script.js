@@ -7,6 +7,7 @@ var CityName;
 
 button.onclick = function(event){
     event.preventDefault();
+    recentsearch.innerHTML = ''
     CityName = CityId.value.trim()
     CityNames.push(CityName)
     localStorage.setItem('city', JSON.stringify(CityNames));
@@ -18,10 +19,7 @@ button.onclick = function(event){
         var valueselector = Cities[i];
         recentsearchbutton.append(valueselector);
         recentsearch.append(recentsearchbutton);
-        console.log(Cities[i])
-    
     }
-    
     
     
 }

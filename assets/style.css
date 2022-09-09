@@ -52,10 +52,13 @@ button {
     margin-top: 20px;
 }
 
-.recent-search {
+#recent-search {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     border-top: solid #020202;
     margin-top: 20px;
+    padding-bottom: 20px;
 
 }
 
@@ -79,4 +82,26 @@ button {
 .forcast {
     margin-left: 20px;
     margin-top: 10px;
+    width: 410%;
+    height: 380px;
+}
+
+button:hover{
+    transition: 0.7ms;
+    background-color: #aeaeae;
+}
+
+.forecast-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.forcastall{
+    border: 1px solid #000000;
+    width: 15%;
+    height: 100%;
+    margin-top: 10px;
+    background-color: #447ddf;
 }
