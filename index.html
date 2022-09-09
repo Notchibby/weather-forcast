@@ -1,68 +1,60 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="assets\style.css">
-    <title> Weather Forcast </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="assets\style.css">
-</head>
+    <link rel="stylesheet" href="assets\style.css" />
+    <title>Weather Forcast</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <link rel="stylesheet" href="assets\style.css" />
+  </head>
 
-
-<body>
+  <body>
     <header>
-        <h1> Weather Dashboard </h1>
+      <h1>Weather Dashboard</h1>
     </header>
 
     <div class="dashboard">
-        <aside>
-            <div class="search-bar form-outline ">
-                <h2>Search for a City:</h2>
-                <input type="search" id="form1" class="form-control " placeholder="City name" aria-label="Search" />
+      <aside>
+        <div class="search-bar form-outline">
+          <h2>Search for a City:</h2>
+          <input
+            type="search"
+            id="cityname"
+            class="form-control"
+            placeholder="City name"
+            aria-label="Search"
+          />
 
-                <button type="button" class="btn btn-primary btn-lg btn-block "> Search </button>
-            </div>
-
-            <div class="recent-search">
-
-            </div>
-
-        </aside>
-
-
-        <div class="result">
-            <div class="current">
-
-            </div>
-
-            <div class="forcast">
-                <h3>5-Day Forecast:</h3>
-
-            </div>
+          <button
+            type="button"
+            class="btn btn-primary btn-lg btn-block"
+            id="buttonid"
+          >
+            Search
+          </button>
         </div>
 
+        <div id="recent-search">
+
+        </div>
+      </aside>
+
+      <div class="result">
+        <div class="current"></div>
+
+        <div class="forcast">
+          <h3>5-Day Forecast:</h3>
+        </div>
+      </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
+    <script src="assets\script.js"></script>
+  </body>
 </html>
