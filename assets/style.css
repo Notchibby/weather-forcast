@@ -23,6 +23,11 @@ h2 {
 }
 
 h3 {
+    font-size: 16px ;
+    font-weight: bolder;
+}
+
+h4 {
     font-weight: bolder;
 }
 
@@ -61,9 +66,20 @@ button {
     padding-bottom: 20px;
 
 }
+#current-header{
+    display: inline-flex;
+    flex-direction: row;
+}
+#weather-icon{
+    position: relative;
+    top: -15px;
+    
+}
 
 .result {
-    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 69%;
 
 }
 
