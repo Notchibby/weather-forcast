@@ -11,6 +11,11 @@ var getweatherforecast = function(lat,lon){
           return response.json();
         })
         .then(function (weatherforecast) {
+          setweatherforecastarray();
           console.log(weatherforecast);
 })
 };
+
+var setweatherforecastarray = function (date,temp,wind,humidity,icon){
+
+}
