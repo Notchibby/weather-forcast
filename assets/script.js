@@ -14,8 +14,10 @@ button.onclick = function (event) {
   CityNames.push(CityName);
   localStorage.setItem("city", JSON.stringify(CityNames));
   var Cities = JSON.parse(localStorage.getItem("city"));
+  Cities = Cities.reverse()
+  console.log(Cities)
 
-  for (var i = 0; i < Cities.length; i++) {
+  for (var i = 0; i < Cities.length && i<7; i++) {
     var recentsearchbutton = document.createElement("button");
     var valueselector = Cities[i];
     recentsearchbutton.append(valueselector);
