@@ -48,7 +48,6 @@
         <div class="current">
           <div id="current-header">
             <h3 id="header-h3"></h3>
-            <img id="weather-icon" src="" alt="weather icon" />
           </div>
 
           <div id="weather-content"></div>
@@ -57,12 +56,18 @@
         <div class="forcast">
           <h4>5-Day Forecast:</h4>
 
-          <div class="forecast-container" id="forecastEl"></div>
+          <div id="forecast-container">
+            <div id="day1" class="forecastEl"></div>
+            <div id="day2" class="forecastEl"></div>
+            <div id="day3" class="forecastEl"></div>
+            <div id="day4" class="forecastEl"></div>
+            <div id="day5" class="forecastEl"></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <script src="assets\script.js"></script>
+    <script src="assets\current.js"></script>
     <script src="assets\forecast.js"></script>
   </body>
 </html>

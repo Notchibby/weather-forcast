@@ -14,10 +14,9 @@ button.onclick = function (event) {
   CityNames.push(CityName);
   localStorage.setItem("city", JSON.stringify(CityNames));
   var Cities = JSON.parse(localStorage.getItem("city"));
-  Cities = Cities.reverse()
-  console.log(Cities)
+  Cities = Cities.reverse();
 
-  for (var i = 0; i < Cities.length && i<7; i++) {
+  for (var i = 0; i < Cities.length && i < 7; i++) {
     var recentsearchbutton = document.createElement("button");
     var valueselector = Cities[i];
     recentsearchbutton.append(valueselector);
@@ -39,7 +38,7 @@ var getlatandlon = function (city) {
       var lat = data[0].lat;
       var lon = data[0].lon;
       getweatherdata(lat, lon);
-      getweatherforecast(lat,lon);
+      getweatherforecast(lat, lon);
     });
 };
 
@@ -61,13 +60,12 @@ var getweatherdata = function (lat, lon) {
       var wind = weatherobj.wind.speed + " " + "m/s";
       var humidity = weatherobj.main.humidity + "%";
       var icon = weatherobj.weather[0].icon;
-      var iconurl = "https://openweathermap.org/img/w/" + icon + ".png";
 
-      displaycurrentweatherdata(date, temp, wind, humidity, iconurl);
+      displaycurrentweatherdata(date, temp, wind, humidity, icon);
     });
 };
 
-var displaycurrentweatherdata = function (date, temp, wind, humidity, iconurl) {
+var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
   document.getElementById("weather-content").innerHTML = "";
   var pcontent = [
     "Temp:" + " " + temp,
@@ -77,7 +75,12 @@ var displaycurrentweatherdata = function (date, temp, wind, humidity, iconurl) {
   document.getElementById("header-h3").textContent =
     CityName + " " + "(" + date + ")";
 
-  document.getElementById("weather-icon").setAttribute("src", iconurl);
+  var currentIcons = document.createElement("img");
+  currentIcons.setAttribute("id", "currentIcon");
+  currentIcons.setAttribute("src","https://openweathermap.org/img/w/" + icon + ".png");
+  currentIcons.setAttribute("alt", "weatherforecast icons");
+
+  document.getElementById("current-header").appendChild(currentIcons);
 
   for (var i = 0; i < pcontent.length; i++) {
     var pEl = document.createElement("p");
