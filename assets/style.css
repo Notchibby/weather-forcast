@@ -113,10 +113,10 @@ button:hover{
 }
 
 .forecastEl{
-    font-weight: bolder;
-    border: 1px solid #000000;
+    padding-left: 0.5%;
+    font-weight: bold;
     width: 14%;
     height: 54%;
     margin-top: 10px;
-    background-color: #0243b3;
+    background-color: #447ddf;
 }
