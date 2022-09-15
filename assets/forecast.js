@@ -57,12 +57,10 @@ var getweatherforecast = function(lat,lon){
           },
         
           ]
-          updateForecast(forecastdata[0].forecastday,forecastdata[0].date, forecastdata[0].temp, forecastdata[0].wind, forecastdata[0].humidity, forecastdata[0].icon )
-          updateForecast(forecastdata[1].forecastday,forecastdata[1].date, forecastdata[1].temp, forecastdata[1].wind, forecastdata[1].humidity, forecastdata[1].icon )
-          updateForecast(forecastdata[2].forecastday,forecastdata[2].date, forecastdata[2].temp, forecastdata[2].wind, forecastdata[2].humidity, forecastdata[2].icon )
-          updateForecast(forecastdata[3].forecastday,forecastdata[3].date, forecastdata[3].temp, forecastdata[3].wind, forecastdata[3].humidity, forecastdata[3].icon )
-          updateForecast(forecastdata[4].forecastday,forecastdata[4].date, forecastdata[4].temp, forecastdata[4].wind, forecastdata[4].humidity, forecastdata[4].icon )
-         
+
+          for (var i = 0; i < forecastdata.length; i++){
+            updateForecast(forecastdata[i].forecastday,forecastdata[i].date, forecastdata[i].temp, forecastdata[i].wind, forecastdata[i].humidity, forecastdata[i].icon)
+          }
           
 })
 };
