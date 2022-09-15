@@ -10,7 +10,7 @@ button.onclick = function (event) {
   event.preventDefault();
   recentsearch.innerHTML = "";
   CityName = CityId.value.trim();
-  if (CityName === ''){
+  if (CityName === "") {
     return;
   }
   CityName = CityName.toUpperCase();
@@ -18,7 +18,6 @@ button.onclick = function (event) {
   localStorage.setItem("city", JSON.stringify(CityNames));
   var Cities = JSON.parse(localStorage.getItem("city"));
   Cities = Cities.reverse();
-  
 
   for (var i = 0; i < Cities.length && i < 7; i++) {
     var recentsearchbutton = document.createElement("button");
@@ -79,9 +78,17 @@ var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
   document.getElementById("header-h3").textContent =
     CityName + " " + "(" + date + ")";
 
+  var existingIcon = document.getElementById("currentIcon");
+  if (existingIcon) {
+    existingIcon.remove();
+  }
+
   var currentIcons = document.createElement("img");
   currentIcons.setAttribute("id", "currentIcon");
-  currentIcons.setAttribute("src","https://openweathermap.org/img/w/" + icon + ".png");
+  currentIcons.setAttribute(
+    "src",
+    "https://openweathermap.org/img/w/" + icon + ".png"
+  );
   currentIcons.setAttribute("alt", "weatherforecast icons");
   document.getElementById("current-header").appendChild(currentIcons);
 
