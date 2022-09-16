@@ -35,15 +35,23 @@ button.onclick = function (event) {
 var getlatandlon = function (city) {
   fetch(rootUrl + city + "&appid=" + APIkey)
     .then(function (response) {
-      return response.json();
+      return response.json()
+    
+      
     })
     .then(function (data) {
+      console.log(data)
       var lat = data[0].lat;
       var lon = data[0].lon;
+      console.log(lat)
+    
       getweatherdata(lat, lon);
       getweatherforecast(lat, lon);
       displayUVindex(lat, lon);
-    });
+    })
+    .catch((error)=>{
+      alert('City not Found')
+    })
 };
 
 var getweatherdata = function (lat, lon) {
@@ -114,3 +122,12 @@ var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
     weatherp.textContent = pcontent[i];
   }
 };
+
+CityId.addEventListener("keypress", function(event) {
+
+  if (event.key === "Enter") {
+    event.preventDefault();
+    button.click();
+  }
+});
+

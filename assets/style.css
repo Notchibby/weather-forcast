@@ -127,5 +127,16 @@ button:hover{
     color: #ffffff;
     padding-left: 1%;
     padding-right: 1%;
-    border-radius: 5%;
+    border-radius: 10%;
+}
+
+@media screen and (max-width:660px){
+    #forecast-container{
+        display: block;
+    }
+
+    .forecastEl{
+        width: 50%;
+    }
+    
 }
