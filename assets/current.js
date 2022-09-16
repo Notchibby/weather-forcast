@@ -42,6 +42,7 @@ var getlatandlon = function (city) {
       var lon = data[0].lon;
       getweatherdata(lat, lon);
       getweatherforecast(lat, lon);
+      displayUVindex(lat, lon);
     });
 };
 
@@ -65,8 +66,26 @@ var getweatherdata = function (lat, lon) {
       var icon = weatherobj.weather[0].icon;
 
       displaycurrentweatherdata(date, temp, wind, humidity, icon);
+    
     });
 };
+
+var displayUVindex = function(lat, lon) {
+  fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" +  APIkey)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (UVdata) {
+    var UVspan = document.createElement('span')
+    UVspan.setAttribute('id', 'Uvindex')
+    UVspan.textContent = UVdata.value
+    var pUV = document.createElement("p");
+    pUV.textContent = 'UV Index: '
+    var UVapp = document.getElementById("weather-content").appendChild(pUV);
+    UVapp.appendChild(UVspan) 
+  });
+}
+
 
 var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
   document.getElementById("weather-content").innerHTML = "";
@@ -85,10 +104,7 @@ var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
 
   var currentIcons = document.createElement("img");
   currentIcons.setAttribute("id", "currentIcon");
-  currentIcons.setAttribute(
-    "src",
-    "https://openweathermap.org/img/w/" + icon + ".png"
-  );
+  currentIcons.setAttribute("src", "https://openweathermap.org/img/w/" + icon + ".png");
   currentIcons.setAttribute("alt", "weatherforecast icons");
   document.getElementById("current-header").appendChild(currentIcons);
 

@@ -59,7 +59,7 @@ var getweatherforecast = function(lat,lon){
           ]
 
           for (var i = 0; i < forecastdata.length; i++){
-            updateForecast(forecastdata[i].forecastday,forecastdata[i].date, forecastdata[i].temp, forecastdata[i].wind, forecastdata[i].humidity, forecastdata[i].icon)
+            updateForecast(forecastdata[i].forecastday, forecastdata[i].date, forecastdata[i].temp, forecastdata[i].wind, forecastdata[i].humidity, forecastdata[i].icon)
           }
           
 })
