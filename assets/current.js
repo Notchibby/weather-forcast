@@ -1,3 +1,4 @@
+// creating variables to help navigate the DOM
 var CityId = document.getElementById("cityname");
 var button = document.getElementById("buttonid");
 var rootUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
@@ -6,6 +7,7 @@ var recentsearch = document.getElementById("recent-search");
 var CityName;
 var CityNames = [];
 
+// added an event listener to the search button that allows for the storage and retrival of the input from the local storage
 button.onclick = function (event) {
   event.preventDefault();
   recentsearch.innerHTML = "";
@@ -17,8 +19,11 @@ button.onclick = function (event) {
   CityNames.push(CityName);
   localStorage.setItem("city", JSON.stringify(CityNames));
   var Cities = JSON.parse(localStorage.getItem("city"));
+
+  // Allows for the most recent input to be displayed on the top of the recent searches
   Cities = Cities.reverse();
 
+// Creates a button and adds an evenetlistener to each of the value retrieved from the local storage and appends it to the html page
   for (var i = 0; i < Cities.length && i < 7; i++) {
     var recentsearchbutton = document.createElement("button");
     var valueselector = Cities[i];
@@ -32,6 +37,7 @@ button.onclick = function (event) {
   getlatandlon(CityName);
 };
 
+// creates a function that retrieves the values of the longitude and latitude for a given city
 var getlatandlon = function (city) {
   fetch(rootUrl + city + "&appid=" + APIkey)
     .then(function (response) {
@@ -40,20 +46,21 @@ var getlatandlon = function (city) {
       
     })
     .then(function (data) {
-      console.log(data)
       var lat = data[0].lat;
       var lon = data[0].lon;
-      console.log(lat)
     
       getweatherdata(lat, lon);
       getweatherforecast(lat, lon);
       displayUVindex(lat, lon);
     })
+
+    // creates an alert if city does not exist
     .catch((error)=>{
       alert('City not Found')
     })
 };
 
+// creates a function that retrieves the weather data of a city given its latitude and longitude
 var getweatherdata = function (lat, lon) {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -67,17 +74,22 @@ var getweatherdata = function (lat, lon) {
       return response.json();
     })
     .then(function (weatherobj) {
+      // stores the data retrieved from the API call as variables
+      console.log(weatherobj)
+      var name = weatherobj.name
       var date = new Date(weatherobj.dt * 1000).toLocaleDateString("en-AU");
       var temp = Math.round(weatherobj.main.temp - 273.15) + "\u00B0" + "C";
       var wind = weatherobj.wind.speed + " " + "m/s";
       var humidity = weatherobj.main.humidity + "%";
       var icon = weatherobj.weather[0].icon;
+      console.log(weatherobj.name)
 
-      displaycurrentweatherdata(date, temp, wind, humidity, icon);
+      displaycurrentweatherdata(name,date, temp, wind, humidity, icon);
     
     });
 };
 
+// creates a function that retrieves the UV index data from an API call and displays the data on the html page
 var displayUVindex = function(lat, lon) {
   fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" +  APIkey)
   .then(function (response) {
@@ -94,16 +106,17 @@ var displayUVindex = function(lat, lon) {
   });
 }
 
-
-var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
+// displays the retrieved weather data on the html page
+var displaycurrentweatherdata = function (name,date, temp, wind, humidity, icon) {
   document.getElementById("weather-content").innerHTML = "";
   var pcontent = [
     "Temp:" + " " + temp,
     "Wind:" + " " + wind,
     "Humidity:" + " " + humidity,
   ];
+
   document.getElementById("header-h3").textContent =
-    CityName + " " + "(" + date + ")";
+    name.toUpperCase() + " " + "(" + date + ")";
 
   var existingIcon = document.getElementById("currentIcon");
   if (existingIcon) {
@@ -123,6 +136,7 @@ var displaycurrentweatherdata = function (date, temp, wind, humidity, icon) {
   }
 };
 
+// allows for a button click when the enter key is pressed
 CityId.addEventListener("keypress", function(event) {
 
   if (event.key === "Enter") {

@@ -1,3 +1,4 @@
+// creates a function that retrieves the weather forecast data and stores it in an array
 var getweatherforecast = function(lat,lon){
     fetch(
         "https://api.openweathermap.org/data/2.5/forecast?lat=" +
@@ -65,6 +66,7 @@ var getweatherforecast = function(lat,lon){
 })
 };
 
+// creates a function that displays the forecast data on the html page
 var updateForecast =function (forecastday, date,temp,wind,humidity,icon){
     forecastday.innerHTML = '';
     var paracontent = [
