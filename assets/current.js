@@ -29,7 +29,7 @@ button.onclick = function (event) {
     var valueselector = Cities[i];
     recentsearchbutton.append(valueselector);
     recentsearchbutton.addEventListener("click", function (event) {
-      getlatandlon(event.target.innerHTML);
+      getlatandlon(event.target.textContent);
     });
     recentsearch.append(recentsearchbutton);
   }
@@ -75,16 +75,14 @@ var getweatherdata = function (lat, lon) {
     })
     .then(function (weatherobj) {
       // stores the data retrieved from the API call as variables
-      console.log(weatherobj)
       var name = weatherobj.name
       var date = new Date(weatherobj.dt * 1000).toLocaleDateString("en-AU");
       var temp = Math.round(weatherobj.main.temp - 273.15) + "\u00B0" + "C";
       var wind = weatherobj.wind.speed + " " + "m/s";
       var humidity = weatherobj.main.humidity + "%";
       var icon = weatherobj.weather[0].icon;
-      console.log(weatherobj.name)
 
-      displaycurrentweatherdata(name,date, temp, wind, humidity, icon);
+      displaycurrentweatherdata(name, date, temp, wind, humidity, icon);
     
     });
 };
@@ -107,7 +105,7 @@ var displayUVindex = function(lat, lon) {
 }
 
 // displays the retrieved weather data on the html page
-var displaycurrentweatherdata = function (name,date, temp, wind, humidity, icon) {
+var displaycurrentweatherdata = function (name, date, temp, wind, humidity, icon) {
   document.getElementById("weather-content").innerHTML = "";
   var pcontent = [
     "Temp:" + " " + temp,
