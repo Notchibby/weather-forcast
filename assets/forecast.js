@@ -13,6 +13,9 @@ var getweatherforecast = function(lat,lon){
         })
         .then(function (weatherforecast) {
 
+
+          // stores api forecast data as an object
+
           var forecastdata = [
           {forecastday: document.getElementById('day1'),
             date: new Date(weatherforecast.list[8].dt * 1000).toLocaleDateString("en-AU"),
