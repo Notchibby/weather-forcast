@@ -5,7 +5,7 @@ var getweatherforecast = function(lat,lon){
           lat +
           "&lon=" +
           lon +
-          "&appid=" +
+          "&units=metric&appid=" +
           APIkey
       )
         .then(function (response) {
@@ -16,7 +16,7 @@ var getweatherforecast = function(lat,lon){
           var forecastdata = [
           {forecastday: document.getElementById('day1'),
             date: new Date(weatherforecast.list[8].dt * 1000).toLocaleDateString("en-AU"),
-            temp: Math.round(weatherforecast.list[8].main.temp - 273.15) + "\u00B0" + "C",
+            temp: weatherforecast.list[8].main.temp + "\u00B0" + "C",
             wind: weatherforecast.list[8].wind.speed + " " + "m/s",
             humidity: weatherforecast.list[8].main.humidity + "%",
             icon: weatherforecast.list[8].weather[0].icon,
@@ -25,7 +25,7 @@ var getweatherforecast = function(lat,lon){
         
           {forecastday: document.getElementById('day2'),
             date: new Date(weatherforecast.list[16].dt * 1000).toLocaleDateString("en-AU"),
-            temp: Math.round(weatherforecast.list[16].main.temp - 273.15) + "\u00B0" + "C",
+            temp: weatherforecast.list[16].main.temp + "\u00B0" + "C",
             wind: weatherforecast.list[16].wind.speed + " " + "m/s",
             humidity: weatherforecast.list[16].main.humidity + "%",
             icon: weatherforecast.list[16].weather[0].icon,
@@ -34,7 +34,7 @@ var getweatherforecast = function(lat,lon){
         
           {forecastday: document.getElementById('day3'),
             date: new Date(weatherforecast.list[24].dt * 1000).toLocaleDateString("en-AU"),
-            temp: Math.round(weatherforecast.list[24].main.temp - 273.15) + "\u00B0" + "C",
+            temp: weatherforecast.list[24].main.temp  + "\u00B0" + "C",
             wind: weatherforecast.list[24].wind.speed + " " + "m/s",
             humidity: weatherforecast.list[24].main.humidity + "%",
             icon: weatherforecast.list[24].weather[0].icon,
@@ -43,7 +43,7 @@ var getweatherforecast = function(lat,lon){
           
           {forecastday: document.getElementById('day4'),
             date: new Date(weatherforecast.list[32].dt * 1000).toLocaleDateString("en-AU"),
-            temp: Math.round(weatherforecast.list[32].main.temp - 273.15) + "\u00B0" + "C",
+            temp: weatherforecast.list[32].main.temp  + "\u00B0" + "C",
             wind: weatherforecast.list[32].wind.speed + " " + "m/s",
             humidity: weatherforecast.list[32].main.humidity + "%",
             icon: weatherforecast.list[32].weather[0].icon,
@@ -51,7 +51,7 @@ var getweatherforecast = function(lat,lon){
         
           {forecastday: document.getElementById('day5'),
             date: new Date(weatherforecast.list[39].dt * 1000).toLocaleDateString("en-AU"),
-            temp: Math.round(weatherforecast.list[39].main.temp - 273.15) + "\u00B0" + "C",
+            temp: weatherforecast.list[39].main.temp  + "\u00B0" + "C",
             wind: weatherforecast.list[39].wind.speed + " " + "m/s",
             humidity: weatherforecast.list[39].main.humidity + "%",
             icon: weatherforecast.list[39].weather[0].icon,
@@ -89,5 +89,6 @@ var updateForecast =function (forecastday, date,temp,wind,humidity,icon){
         
       }
 }
+
 
   

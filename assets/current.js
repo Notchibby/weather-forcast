@@ -67,7 +67,7 @@ var getweatherdata = function (lat, lon) {
       lat +
       "&lon=" +
       lon +
-      "&appid=" +
+      "&units=metric&appid=" +
       APIkey
   )
     .then(function (response) {
@@ -77,7 +77,7 @@ var getweatherdata = function (lat, lon) {
       // stores the data retrieved from the API call as variables
       var name = weatherobj.name
       var date = new Date(weatherobj.dt * 1000).toLocaleDateString("en-AU");
-      var temp = Math.round(weatherobj.main.temp - 273.15) + "\u00B0" + "C";
+      var temp = weatherobj.main.temp + "\u00B0" + "C";
       var wind = weatherobj.wind.speed + " " + "m/s";
       var humidity = weatherobj.main.humidity + "%";
       var icon = weatherobj.weather[0].icon;
@@ -95,7 +95,17 @@ var displayUVindex = function(lat, lon) {
   })
   .then(function (UVdata) {
     var UVspan = document.createElement('span')
-    UVspan.setAttribute('id', 'Uvindex')
+
+    // the uv index changes color based on if the value is favourable, moderate or extreme
+    if (UVdata.value <= 5){
+      UVspan.setAttribute('id', 'Uvindexfavourable')}
+    else if (5 < UVdata.value <= 7){
+      UVspan.setAttribute('id', 'Uvindexmoderate')
+    }
+    else {
+      UVspan.setAttribute('id', 'Uvindexextreme')
+    }
+
     UVspan.textContent = UVdata.value
     var pUV = document.createElement("p");
     pUV.textContent = 'UV Index: '

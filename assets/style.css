@@ -121,9 +121,27 @@ button:hover{
     background-color: #447ddf;
 }
 
-#Uvindex {
+#Uvindexfavourable {
     border: 1px solid black;
     background-color: #008000;
+    color: #ffffff;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 10%;
+}
+
+#Uvindexmoderate {
+    border: 1px solid black;
+    background-color: #ffff00;
+    color: #060606;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 10%;
+}
+
+#Uvindexextreme {
+    border: 1px solid black;
+    background-color: #ff0000;
     color: #ffffff;
     padding-left: 1%;
     padding-right: 1%;
