@@ -97,9 +97,10 @@ var displayUVindex = function(lat, lon) {
     var UVspan = document.createElement('span')
 
     // the uv index changes color based on if the value is favourable, moderate or extreme
-    if (UVdata.value <= 5){
-      UVspan.setAttribute('id', 'Uvindexfavourable')}
-    else if (5 < UVdata.value <= 7){
+    if (UVdata.value < 5){
+      UVspan.setAttribute('id', 'Uvindexfavourable')
+    }
+    else if (UVdata.value >= 5 && UVdata.value <= 7){
       UVspan.setAttribute('id', 'Uvindexmoderate')
     }
     else {
