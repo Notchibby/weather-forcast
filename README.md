@@ -26,3 +26,4 @@ This project aims to promote and reinforce our understanding of server side API.
 https://github.com/Notchibby/weather-forcast-app.git
 
 ## link to live url deployment
+https://notchibby.github.io/weather-forcast-app/
