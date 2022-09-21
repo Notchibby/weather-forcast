@@ -12,12 +12,15 @@ button.onclick = function (event) {
   event.preventDefault();
   recentsearch.innerHTML = "";
   CityName = CityId.value.trim();
+// if no city name input do not continue to run the function
   if (CityName === "") {
     return;
   }
   CityName = CityName.toUpperCase();
   CityNames.push(CityName);
+  // stores city name in local storage
   localStorage.setItem("city", JSON.stringify(CityNames));
+  // gets city name form local storage
   var Cities = JSON.parse(localStorage.getItem("city"));
 
   // Allows for the most recent input to be displayed on the top of the recent searches
@@ -46,6 +49,7 @@ var getlatandlon = function (city) {
       
     })
     .then(function (data) {
+      // stores the value of the latitude and longitude as variables
       var lat = data[0].lat;
       var lon = data[0].lon;
     
