@@ -8,17 +8,17 @@ This project aims to promote and reinforce our understanding of server side API.
 
 
 ## Screenshot showing weather information for London with a favourable UV index.
-![screenshot-of-the-application (london)](assets\Images\london_screenshot.png)
+![screenshot-of-the-application (london)](https://i.postimg.cc/9ff33B0J/london-screenshot.png)
 
 
 ## Screenshot showing weather information for Canberra with a moderate UV index.
 
-![screenshot-of-the-application (Canberra)](assets\Images\Canberra_screenshot.png)
+![screenshot-of-the-application (Canberra)](https://i.postimg.cc/d0FMWYcP/Canberra-screenshot.png)
 
 
 
 ## Screenshot showing weather information for Dallas with extreme UV index.
-![screenshot-of-the-application (Dallas)](assets\Images\Dallas_screenshot.png)
+![screenshot-of-the-application (Dallas)](https://i.postimg.cc/qvwfZFJN/Dallas-screenshot.png)
 
 
 
